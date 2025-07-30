@@ -8,7 +8,7 @@ class GetTrip{
   GetTrip(this.repository);
 
 
-  Future<Trip> call(){
+  Future<List<Trip>> call(){
     return repository.getTrips();
   }
 }
