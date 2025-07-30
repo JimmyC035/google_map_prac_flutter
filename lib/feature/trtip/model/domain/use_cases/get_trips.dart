@@ -2,10 +2,10 @@ import 'package:google_map_prac/feature/trtip/model/data/repositories/trip_repos
 
 import '../entities/trip.dart';
 
-class GetTrip{
+class GetTrips{
   final TripRepository repository;
 
-  GetTrip(this.repository);
+  GetTrips(this.repository);
 
 
   Future<List<Trip>> call(){
