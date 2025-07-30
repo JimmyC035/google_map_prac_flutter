@@ -9,7 +9,11 @@
 - 採用 Clean Architecture 架構，分離 UI、業務邏輯、資料層
 - 狀態管理採用 Riverpod，提升可維護性與可測試性
 
-## 專案資料夾結構（完整）
+## 專案資料夾結構
+
+架構參考 DDD 架構，採用偏向Android MVVM 方式實現， 把 screen 和 provider 分再一起管理
+
+<img width="1697" height="1503" alt="mad-arch-overview-ui" src="https://github.com/user-attachments/assets/7a018d15-ed8b-4059-9a0e-10097b07f1fb" />
 
 ```
 google_map_prac/
