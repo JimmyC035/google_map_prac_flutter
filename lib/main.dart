@@ -5,6 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'feature/trtip/model/data/models/trip_model.dart';
+import 'feature/trtip/ui/pages/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
