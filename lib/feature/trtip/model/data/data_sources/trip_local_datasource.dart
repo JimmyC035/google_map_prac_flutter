@@ -14,8 +14,8 @@ class TripLocalDataSource{
   void addTrip(TripModel trip){
     tripBox.add(trip);
   }
-  void deleteTrip(int index){
-    tripBox.delete(index);
+  void deleteTrip(String uuid){
+    tripBox.delete(uuid);
   }
 
 }

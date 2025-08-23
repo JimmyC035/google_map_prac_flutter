@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_map_prac/feature/trtip/ui/pages/trip_provider.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../model/domain/entities/trip.dart';
 
@@ -41,6 +42,7 @@ class AddTripScreen extends ConsumerWidget {
               pictures.add(_pictureController.text);
               if (_formKey.currentState!.validate()) {
                 final newTrip = Trip(
+                  tripId: const Uuid().v4(),
                   title: _titleController.text,
                   description: _descController.text,
                   date: DateTime.now(),

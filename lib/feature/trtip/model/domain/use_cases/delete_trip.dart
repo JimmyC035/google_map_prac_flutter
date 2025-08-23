@@ -7,7 +7,7 @@ class DeleteTrip{
 
   DeleteTrip(this.repository);
 
-  Future<void> call(int index){
-    return repository.deleteTrip(index);
+  Future<void> call(String uuid){
+    return repository.deleteTrip(uuid);
   }
 }

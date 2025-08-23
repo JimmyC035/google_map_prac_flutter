@@ -17,8 +17,8 @@ class TripRepositoryImpl implements TripRepository{
   }
 
   @override
-  Future<void> deleteTrip(int index) async{
-    localDataSource.deleteTrip(index);
+  Future<void> deleteTrip(String uuid) async{
+    localDataSource.deleteTrip(uuid);
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_map_prac/feature/trtip/model/data/data_sources/trip_local_datasource.dart';
 import 'package:google_map_prac/feature/trtip/model/data/repositories/trip_repository.dart';
@@ -44,6 +45,27 @@ final tripListNotifierProvider =
       return TripListNotifier(getTrips, addTrip, deleteTrip);
     });
 
+
+// 1. A StateProvider to hold the current page index.
+final pageIndexProvider = StateProvider<int>((ref) => 0);
+
+// 2. An autoDispose Provider to manage the PageController's lifecycle.
+final pageControllerProvider = Provider.autoDispose<PageController>((ref) {
+  final controller = PageController(initialPage: ref.read(pageIndexProvider));
+
+  // Update the page index provider whenever the PageView's page changes.
+  controller.addListener(() {
+    if (controller.page != null) {
+      ref.read(pageIndexProvider.notifier).state = controller.page!.round();
+    }
+  });
+
+  // Dispose the controller when the provider is no longer used.
+  ref.onDispose(() => controller.dispose());
+
+  return controller;
+});
+
 class TripListNotifier extends StateNotifier<List<Trip>> {
   final GetTrips _getTrips;
   final AddTrip _addTrip;
@@ -55,7 +77,7 @@ class TripListNotifier extends StateNotifier<List<Trip>> {
     await _addTrip(trip);
   }
 
-  Future<void> removeTrip(int tripId) async {
+  Future<void> removeTrip(String tripId) async {
     await _deleteTrip(tripId);
   }
 

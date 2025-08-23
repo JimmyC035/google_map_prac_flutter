@@ -5,5 +5,5 @@ abstract class TripRepository {
 
   Future<void> addTrip(Trip trip);
 
-  Future<void> deleteTrip(int index);
+  Future<void> deleteTrip(String uuid);
 }
